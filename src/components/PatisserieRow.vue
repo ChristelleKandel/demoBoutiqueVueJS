@@ -38,7 +38,7 @@ const produit = reactive({
 
           <template v-slot:image>
             <!-- v-bind:href ou v-bind:src peuvent être abrégés avec juste : , tout comme @click est un abrégé de v-on:click-->
-            <a :href="produit.photo" target="_blank"><img alt="photo de {{ produit.nom }}" class="photo" :src="produit.photo"></a>
+            <a :href="produit.photo" target="_blank"><img alt="photo de {{ produit.nom }}" class="w-100" :src="produit.photo"></a>
           </template>
 
           <template v-slot:ingredients>
@@ -74,7 +74,7 @@ const produit = reactive({
             <p v-else-if="produit.inventory <= 10 && produit.inventory > 0">Presque en rupture!</p>
             <p v-else>Trop tard!</p>
           </template>
-          
+
         </Cards>
     </div>
 
