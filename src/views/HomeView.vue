@@ -3,7 +3,7 @@ import PatisserieRow from '../components/PatisserieRow.vue'
 </script>
 
 <template>
-  <main>
+  <main class="container w-auto">
     <h1 class="text-center">La boutique des gourmands</h1>
     <PatisserieRow />
   </main>
