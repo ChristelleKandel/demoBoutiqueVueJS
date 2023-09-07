@@ -14,7 +14,8 @@ const produit = reactive({
     {id: 10, color: 'noir'},
     {id: 11, color: 'lait'},
     {id: 12, color: 'blanc'}
-  ]
+  ],
+  cart: 0
 })
 // fonction display pour envoyer la définition de la propriété produit dans l'élément enfant : le component Chocolat.vue
 // const display = () => {
@@ -29,12 +30,54 @@ const produit = reactive({
         <ChocolatsCard :product="product" :produit="produit" :cart="cart" />
         <ChocolatsCard :product="product" :produit="produit" :cart="cart" />
         -->
-        <Cards v-for="(card, index) in 3" :key="index" :product="product" :produit="produit" />
+        <Cards v-for="(card, index) in 3" :key="index" :product="product" :produit="produit" >
+          
+          <template v-slot:title>
+            <h3>{{ produit.nom }}</h3>
+          </template>
+
+          <template v-slot:image>
+            <!-- v-bind:href ou v-bind:src peuvent être abrégés avec juste : , tout comme @click est un abrégé de v-on:click-->
+            <a :href="produit.photo" target="_blank"><img alt="photo de {{ produit.nom }}" class="photo" :src="produit.photo"></a>
+          </template>
+
+          <template v-slot:ingredients>
+            <!-- Faire une liste depuis un tableau-->
+            <h3>Ingrédients</h3>
+            <ul>
+                <li v-for="ingredient in produit.ingredients">{{ ingredient }}</li>
+            </ul>
+          </template>
+
+          <template v-slot:variants>
+            <!-- liée une variation d'un objet à son idée avec v-bind:key-->
+            <h4>Les différentes options de chocolat</h4>
+            <div v-for="variant in produit.variantes" :key="variant.id">
+                - {{ variant.color }} - <button class="btn" @click="produit.cart +=1">Ajouter au panier</button>
+                <!--ajout dans le panier directement v-on:click-->
+                <!--Ajout d'une méthode
+                <button class="btn" @click="log">{{ msg }}</button>-->
+            
+                <div class="cart">Panier: ({{ produit.cart }})</div>
+            </div>
+          </template>
+
+          <template v-slot:stock>
+            <h4>Le stock</h4>
+            <!-- Montre l'un ou l'autre des événements selon que la valeur de la variable est true ou false-->
+            <!-- <p v-if="produit.inStock">En stock</p>
+            <p v-else>En rupture</p> -->
+            <!-- N'apparait que si la valeur de la variable est true-->
+            <!-- <p v-show="produit.quantiteLimitee">Quantité limitée</p> -->
+            <!--Affichage en fonction d'une variable-->
+            <p v-if="produit.inventory > 10">Stock OK</p>
+            <p v-else-if="produit.inventory <= 10 && produit.inventory > 0">Presque en rupture!</p>
+            <p v-else>Trop tard!</p>
+          </template>
+          
+        </Cards>
     </div>
-    <h2 class="text-center">Les desserts fruités</h2>
-    <div class="row container m-3 m-auto ">
-        <Cards v-for="(card, index) in 3" :key="index" :product="product" :produit="produit" />
-    </div>
+
 
 </template>
 
