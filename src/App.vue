@@ -1,6 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+const today = new Date()
+const currentYear = today.getFullYear()
+import { computed } from 'vue'
+const copyright = computed(() => {
+  return `Copyright ${currentYear}`;
+})
 </script>
 
 <template>
@@ -20,6 +26,10 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+
+  <footer class="text-center bg-light"> 
+		<p>{{ copyright }}</p>
+  </footer>
 </template>
 
 <style scoped>

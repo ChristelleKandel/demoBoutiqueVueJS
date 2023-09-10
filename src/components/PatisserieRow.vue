@@ -1,41 +1,67 @@
 <script setup>
 
 import Cards from './Cards.vue'
-import { reactive, ref } from 'vue'
+import { ref, computed } from 'vue'
+
+// Données initiales
 const product = ref('chocolat')
-const produits = reactive([
+const produits = ref([
     {
         name: 'tarte',
         image: 'src/assets/images/tarte.jpg',
         inventory: 8,
         ingredients: ['oeufs', 'chocolat', 'farine', 'crème fraîche'],
+        price: 6.99,
+        quantity: 1
     },
     {
         name: 'Gâteau' ,
         image: 'src/assets/images/gateau.jpg',
         inventory: 12,
-        ingredients: ['oeufs', 'chocolat', 'farine', 'beurre'],
+        ingredients: ['oeufs', 'chocolat', 'fécule de maïs', 'beurre'],
+        price: 10.50,
+        quantity: 2
     },
     {
         name: 'Muffins',
         image: 'src/assets/images/muffins.jpg',
         inventory: 0,
-        ingredients: ['oeufs', 'chocolat', 'farine', 'crème fraîche'],
+        ingredients: ['oeufs', 'chocolat', 'poudre d\'amamnde', 'crème fraîche'],
+        price: 4.90,
+        quantity: 3
     },
 
 ])
-const cart = ref (0);
+
+// Calcul du total du panier
+const TotalCart = computed(() => {
+  return produits.value.reduce((TotalCart, produit) => {
+    return (TotalCart + produit.price * produit.quantity);
+  }, 0);
+});
+
+// Fonction pour augmenter la quantité d'un produit
+const incrementQuantity = (produit) => {
+  produit.quantity += 1;
+};
+// Fonction pourdiminuer la quantité d'un produit
+const decrementQuantity = (produit) => {
+  produit.quantity -= 1;
+};
 
 </script>
 
 <template>
-    <h2 class="text-center">Les desserts chocolatés</h2>
+    <h2 class="text-center">Les desserts au  {{ product }}</h2>
     <div class="row container m-3 m-auto ">
         <!-- Je fais une boucle avec 3 cards plutôt que de répéter 3 fois ma card 
         <ChocolatsCard :product="product" :produit="produit" :cart="cart" />
         <ChocolatsCard :product="product" :produit="produit" :cart="cart" />
         -->
-        <Cards v-for="produit in produits" :product="product" :produit="produit" >
+        <Cards 
+        v-for="(produit, index) in produits" :key="index" 
+        :produit="produit" 
+        >
           
           <template v-slot:title>
             <h3>{{ produit.name }}</h3>
@@ -56,8 +82,13 @@ const cart = ref (0);
 
           <template v-slot:panier>
             <div>
-                <button class="btn" @click="cart +=1">Ajouter au panier</button>
-                <div class="cart">Panier: ({{ cart }})</div>
+              <ul>
+                <li>{{ produit.price }} €</li>
+                <li>Quantité au panier : {{ produit.quantity }}</li>
+                <li>Total = {{ produit.price * produit.quantity }} {{ sous_card }}</li>
+              </ul>
+                <button class="btn" @click="incrementQuantity(produit)">Ajouter</button>
+                <button class="btn" @click="decrementQuantity(produit)">Retirer</button>
             </div>
           </template>
 
@@ -69,6 +100,11 @@ const cart = ref (0);
           </template>
 
         </Cards>
+
+        <div class="shopping-cart">
+          <div class="cart">Panier: ({{ TotalCart }})</div>
+        </div>
+
     </div>
 
 
