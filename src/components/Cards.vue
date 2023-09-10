@@ -16,14 +16,14 @@ const cart = ref (0);
 
 <template>
     
-    <div class="card col-md-4 ">
+    <div class="card col-md-4 mb-5">
         <div>
             <!-- La valeur de la variable définie ici sera choisie dans App.vue -->
             <!-- Si ma variable est un objet comme user, je dois spécifier quelle valeur de mon objet j'appelle objet.variable-->
             <slot name="title">Titre de la carte par défaut</slot>
             <slot name="image">Image de la carte</slot>
             <slot name="ingredients">Liste des ingrédients par défaut</slot>
-            <slot name="variants">Pas de variations possible</slot>
+            <slot name="panier">Pas de variations possible</slot>
             <slot name ="stock">Stock ??</slot>
         </div>
     </div>
