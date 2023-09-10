@@ -35,9 +35,11 @@ const produits = ref([
 
 // Calcul du total du panier
 const TotalCart = computed(() => {
-  return produits.value.reduce((TotalCart, produit) => {
+  const unformattedTotal = produits.value.reduce((TotalCart, produit) => {
     return (TotalCart + produit.price * produit.quantity);
   }, 0);
+  return unformattedTotal // On ne le formate pas ici si on le formate dans le template
+  // return unformattedTotal.toFixed(2); // Formatage avec 2 chiffres après la virgule
 });
 
 // Fonction pour augmenter la quantité d'un produit
@@ -83,9 +85,9 @@ const decrementQuantity = (produit) => {
           <template v-slot:panier>
             <div>
               <ul>
-                <li>{{ produit.price }} €</li>
+                <li>{{ produit.price.toFixed(2) }} €</li> <!-- Formatage du prix unitaire -->
                 <li>Quantité au panier : {{ produit.quantity }}</li>
-                <li>Total = {{ produit.price * produit.quantity }} {{ sous_card }}</li>
+                <li>Total = {{ (produit.price * produit.quantity).toFixed(2) }}</li>  <!-- Formatage du total individuel -->
               </ul>
                 <button class="btn" @click="incrementQuantity(produit)">Ajouter</button>
                 <button class="btn" @click="decrementQuantity(produit)">Retirer</button>
@@ -102,7 +104,7 @@ const decrementQuantity = (produit) => {
         </Cards>
 
         <div class="shopping-cart">
-          <div class="cart">Panier: ({{ TotalCart }})</div>
+          <div class="cart">Total du panier: {{ TotalCart.toFixed(2) }} €</div> <!-- Formatage du total du panier -->
         </div>
 
     </div>
