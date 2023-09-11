@@ -4,14 +4,16 @@ import { ref, computed, defineProps, defineEmits } from 'vue';
 // Propriétés
 const { title, products } = defineProps(['title', 'products']);
 
-// Événements
+// Événements emit utilisée depuis le component Enfant pour émettre un event
+// emit est utilisé dans une fonction avec ("nom de l'event", valeur facultative à émettre)
+//  la fonction répondant à l'event "nom de l'event" sera définie dans le parent,  HomeView.vue pour nous ici
 const emit = defineEmits();
 
 // Méthode pour incrémenter la quantité d'un produit
 const incrementQuantity = (product) => {
     if(product.quantity < product.inventory){
     product.quantity += 1;
-    emit('update:products', products); // Émettre l'événement pour mettre à jour les quantités dans le parent
+    emit('update:products', products); // Émettre l'événement pour mettre à jour les quantités dans le parent 
     }
 };
 // Méthode pour décrémenter la quantité d'un produit

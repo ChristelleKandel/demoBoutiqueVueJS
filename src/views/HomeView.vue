@@ -67,6 +67,7 @@ const updateCartFruits = (newProducts) => {
     <h1 class="text-center">La boutique des gourmands</h1>
     <div class="row">
       <div class="col-md-3">
+        <!-- Ici on ajoute l'utilisation de l'event @update:products émise (emit) par l'enfant Panier et on lui attribue une fonction définie dans script-->
         <Panier title="Chocolats" :products="importedChocolats" :total="totalChocolat" @update:products="updateCartChocolat" />
         <Panier title="Fruits" :products="importedFruits" :total="totalFruits" @update:products="updateCartFruits" />
         <h3>Total global du panier</h3>
