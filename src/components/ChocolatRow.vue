@@ -56,10 +56,7 @@ const decrementQuantity = (produit) => {
 <template>
     <h2 class="text-center">Les desserts au  {{ product }}</h2>
     <div class="row container m-3 m-auto ">
-        <!-- Je fais une boucle avec 3 cards plutôt que de répéter 3 fois ma card 
-        <ChocolatsCard :product="product" :produit="produit" :cart="cart" />
-        <ChocolatsCard :product="product" :produit="produit" :cart="cart" />
-        -->
+        <!--Création de card pour afficher chaque produit de produits[]-->
         <Cards 
         v-for="(produit, index) in produits" :key="index" 
         :produit="produit" 
