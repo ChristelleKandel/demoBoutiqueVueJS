@@ -5,7 +5,7 @@ export const chocolats = [
         inventory: 8,
         ingredients: ['oeufs', 'chocolat', 'farine', 'crème fraîche'],
         price: 6.99,
-        quantity: 1
+        quantity: 0
     },
     {
         name: 'Gâteau' ,
@@ -13,7 +13,7 @@ export const chocolats = [
         inventory: 12,
         ingredients: ['oeufs', 'chocolat', 'fécule de maïs', 'beurre'],
         price: 10.50,
-        quantity: 2
+        quantity: 0
     },
     {
         name: 'Muffins',

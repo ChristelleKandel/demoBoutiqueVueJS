@@ -5,6 +5,15 @@ const props = defineProps([
 'produit'
 ])
 
+// Fonction pour augmenter la quantité d'un produit
+const incrementQuantity = (produit) => {
+  produit.quantity += 1;
+};
+// Fonction pour diminuer la quantité d'un produit
+const decrementQuantity = (produit) => {
+  produit.quantity -= 1;
+};
+
 </script>
 
 <template>

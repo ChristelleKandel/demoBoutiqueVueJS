@@ -13,15 +13,6 @@ import { fruits } from '../Fruits.js'; // Import des produits depuis Products.js
 const importedChocolats = ref([...chocolats]);
 const importedFruits = ref([...fruits]);
 
-// Fonction pour augmenter la quantité d'un produit
-const incrementQuantity = (produit) => {
-  produit.quantity += 1;
-};
-// Fonction pour diminuer la quantité d'un produit
-const decrementQuantity = (produit) => {
-  produit.quantity -= 1;
-};
-
 // Calcul du total du panier pour chocolats.js
 const totalChocolat = computed(() => {
   const unformattedTotal = chocolats.reduce((total, product) => {
@@ -54,7 +45,6 @@ const globalTotal = computed(() => {
         v-for="(produit, index) in importedChocolats" :key="index" 
         :produit="produit" 
         />
-        <div class="cart">Total du panier chocolat: {{ totalChocolat.toFixed(2) }} €</div>
     </div>
     <h2 class="text-center">Les desserts aux fruits</h2>
     <div class="row container m-3 m-auto ">
@@ -62,11 +52,7 @@ const globalTotal = computed(() => {
         v-for="(produit, index) in importedFruits" :key="index" 
         :produit="produit" 
         />
-        <div class="cart">Total du panier Fruits: {{ totalFruits.toFixed(2) }} €</div>
     </div>
-
-    <h1>Total global du panier</h1>
-    <p>Total global : {{ globalTotal.toFixed(2) }}</p>
 
 </template>
 

@@ -13,7 +13,7 @@ export const fruits = [
         inventory: 12,
         ingredients: ['oeufs', 'pêches', 'farine', 'beurre', 'sucre'],
         price: 12.50,
-        quantity: 4
+        quantity: 0
     },
     {
         name: 'Cake',
@@ -21,6 +21,6 @@ export const fruits = [
         inventory: 2,
         ingredients: ['oeufs', 'fraises', 'poudre d\'amamnde', 'crème fraîche', 'stévia'],
         price: 4.90,
-        quantity: 3
+        quantity: 0
     },
 ]
