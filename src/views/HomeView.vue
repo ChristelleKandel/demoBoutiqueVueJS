@@ -26,16 +26,38 @@ const totalFruits = computed(() => {
 
 // Calcul du total global
 const globalTotal = computed(() => {
-  return totalChocolat.value + totalFruits.value; // Ajoutez d'autres totaux ici pour les autres paniers si nécessaire
+  return totalChocolat.value + totalFruits.value; // Ajoutez tous les totaux de tous les products à la main
 });
 
 // Méthodes pour mettre à jour la quantité des produits dans les paniers
 const updateCartChocolat = (newProducts) => {
   importedChocolats.value = newProducts;
+  // updateGlobalTotal(); // Mettez à jour globalTotal à chaque mise à jour du panier
 };
 const updateCartFruits = (newProducts) => {
   importedFruits.value = newProducts;
+  // updateGlobalTotal(); // Mettez à jour globalTotal à chaque mise à jour du panier
 };
+
+// On aurait pu faire un Calcul automatique de globalTotal en utilisant une boucle while
+// const updateGlobalTotal = () => {
+//   let total = 0;
+
+//   // Ajoutez ici tous les totaux individuels des paniers que vous avez
+//   const cartTotals = [totalChocolat.value, totalFruits.value];
+
+//   let i = 0;
+//   while (i < cartTotals.length) {
+//     total += cartTotals[i];
+//     i++;
+//   }
+
+//   globalTotal.value = total;
+// };
+
+// Initialisation de globalTotal
+// const globalTotal = ref(0);
+// updateGlobalTotal(); // Calcul initial de globalTotal
 
 
 </script>

@@ -1,4 +1,5 @@
 <script setup>
+// Exemple de script où les données sont définis dans la même page
 
 import Cards from './Cards.vue'
 import { ref, computed } from 'vue'
