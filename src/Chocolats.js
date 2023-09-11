@@ -21,7 +21,7 @@ export const chocolats = [
         inventory: 0,
         ingredients: ['oeufs', 'chocolat', 'poudre d\'amamnde', 'crème fraîche'],
         price: 4.90,
-        quantity: 3
+        quantity: 0
     },
 
 ]

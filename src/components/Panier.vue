@@ -9,13 +9,17 @@ const emit = defineEmits();
 
 // Méthode pour incrémenter la quantité d'un produit
 const incrementQuantity = (product) => {
+    if(product.quantity < product.inventory){
     product.quantity += 1;
     emit('update:products', products); // Émettre l'événement pour mettre à jour les quantités dans le parent
+    }
 };
 // Méthode pour décrémenter la quantité d'un produit
 const decrementQuantity = (product) => {
+    if(product.quantity > 0){
     product.quantity -= 1;
     emit('update:products', products); 
+    }
 };
 
 const cartTotal = computed(() => {
