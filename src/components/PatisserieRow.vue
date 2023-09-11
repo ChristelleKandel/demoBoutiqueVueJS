@@ -11,7 +11,7 @@ import { ref, computed } from 'vue'
 // import des données initiales
 import { chocolats } from '../Chocolats.js'; // Import des produits depuis Products.js
 import { fruits } from '../Fruits.js'; // Import des produits depuis Products.js
-// Utilisation de ref pour créer une copie réactive des produits importés
+// Utilisation de ref pour créer une copie réactive des produits importés grâce à [...array]
 const importedChocolats = ref([...chocolats]);
 const importedFruits = ref([...fruits]);
 
