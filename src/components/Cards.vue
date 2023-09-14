@@ -7,11 +7,15 @@ const props = defineProps([
 
 // Fonction pour augmenter la quantité d'un produit
 const incrementQuantity = (produit) => {
-  produit.quantity += 1;
+  if(produit.quantity < produit.inventory){
+    produit.quantity += 1;
+  }
 };
 // Fonction pour diminuer la quantité d'un produit
 const decrementQuantity = (produit) => {
-  produit.quantity -= 1;
+  if(produit.quantity > 0){
+    produit.quantity -= 1;
+  }
 };
 
 </script>
@@ -47,8 +51,8 @@ const decrementQuantity = (produit) => {
             </div>
             </slot>
             <slot name ="stock">
-            <p v-if="produit.inventory > 10">Stock OK</p>
-            <p v-else-if="produit.inventory <= 10 && produit.inventory > 0">Presque en rupture!</p>
+            <p v-if="produit.inventory > 5">Stock OK</p>
+            <p v-else-if="produit.inventory <= 5 && produit.inventory > 0">Presque en rupture!</p>
             <p v-else>Trop tard!</p>
             </slot>
         </div>
