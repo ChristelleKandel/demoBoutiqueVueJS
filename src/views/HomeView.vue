@@ -22,8 +22,8 @@ import Panier from '../components/Panier.vue'
 
 
 // import des données initiales
-import chocolats from '../Chocolats.js'; // Import des produits depuis Products.js
-import fruits from '../Fruits.js'; // Import des produits depuis Products.js
+import chocolats from '../Data/Chocolats.js'; // Import des produits depuis Products.js
+import fruits from '../Data/Fruits.js'; // Import des produits depuis Products.js
 
 // Utilisation de ref pour créer une copie réactive des produits importés
 const importedChocolats = ref(chocolats);

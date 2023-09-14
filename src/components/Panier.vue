@@ -41,19 +41,19 @@ const cartTotal = computed(() => {
                 <th>Produit</th>
                 <th>Prix unitaire</th>
                 <th>Quantité</th>
-                <th>Total</th>
+                <!--<th>Total</th> -->
             </tr>
         </thead>
         <tbody>
             <tr v-for="(product, index) in products" :key="index">
                 <td>{{ product.name }}</td>
-                <td>{{ product.price.toFixed(2) }}</td>
+                <td>{{ product.price.toFixed(2) }}€</td>
                 <td>
-                {{ product.quantity }}
+                {{ product.quantity }} <br/>
                 <button @click="incrementQuantity(product)">+1</button>
                 <button @click="decrementQuantity(product)">-1</button>
                 </td>
-                <td>{{ (product.price * product.quantity).toFixed(2) }}</td>
+                <!--<td>{{ (product.price * product.quantity).toFixed(2) }}</td>-->
             </tr>
         </tbody>
       </table>
