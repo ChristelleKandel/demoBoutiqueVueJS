@@ -96,6 +96,7 @@ ingredientsFilterProducts();
       </div>
     </div>
 
+    <h1 class="text-center text-green">La boutique des gourmands</h1>
     <!-- Sinon toutes les div -->
     <h2 class="text-center">Les desserts au chocolat</h2>
     <div class="row container m-3 m-auto ">

@@ -1,6 +1,6 @@
 const chocolats = [
     {
-        name: 'tarte',
+        name: 'tarte au chocolat',
         image: 'src/assets/images/tarte.jpg',
         inventory: 8,
         ingredients: ['oeufs', 'chocolat', 'farine', 'crème fraîche'],
@@ -8,7 +8,7 @@ const chocolats = [
         quantity: 0
     },
     {
-        name: 'Gâteau' ,
+        name: 'Gâteau au chocolat' ,
         image: 'src/assets/images/gateau.jpg',
         inventory: 12,
         ingredients: ['oeufs', 'chocolat', 'fécule de maïs', 'beurre'],
@@ -16,7 +16,7 @@ const chocolats = [
         quantity: 0
     },
     {
-        name: 'Muffins',
+        name: 'Muffins au chocolat',
         image: 'src/assets/images/muffins.jpg',
         inventory: 0,
         ingredients: ['oeufs', 'chocolat', 'poudre d\'amamnde', 'crème fraîche'],

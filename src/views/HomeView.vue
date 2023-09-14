@@ -1,11 +1,5 @@
 <template>
   <main class="container w-auto">
-
-
-        <h1>La boutique des gourmands</h1>
-
-
-
     <div class="row">
       <div class="col-md-3">
         <!-- Ici on ajoute l'utilisation de l'event @update:products émise (emit) par l'enfant Panier et on lui attribue une fonction définie dans script-->
