@@ -1,14 +1,39 @@
+<template>
+  <main class="container w-auto">
+
+
+        <h1>La boutique des gourmands</h1>
+
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <!-- Ici on ajoute l'utilisation de l'event @update:products émise (emit) par l'enfant Panier et on lui attribue une fonction définie dans script-->
+        <Panier title="Chocolats" :products="importedChocolats" :total="totalChocolat" @update:products="updateCartChocolat" />
+        <Panier title="Fruits" :products="importedFruits" :total="totalFruits" @update:products="updateCartFruits" />
+        <h3>Total global du panier</h3>
+        <p>Total global : {{ globalTotal.toFixed(2) }}</p>
+      </div>
+      <div class="col-md-9">
+        <PatisserieRow />
+      </div>
+    </div>
+  </main>
+</template>
+
 <script setup>
 import { ref, computed } from 'vue'
 import PatisserieRow from '../components/PatisserieRow.vue'
 import Panier from '../components/Panier.vue'
 
+
 // import des données initiales
-import { chocolats } from '../Chocolats.js'; // Import des produits depuis Products.js
-import { fruits } from '../Fruits.js'; // Import des produits depuis Products.js
+import chocolats from '../Chocolats.js'; // Import des produits depuis Products.js
+import fruits from '../Fruits.js'; // Import des produits depuis Products.js
+
 // Utilisation de ref pour créer une copie réactive des produits importés
-const importedChocolats = ref([...chocolats]);
-const importedFruits = ref([...fruits]);
+const importedChocolats = ref(chocolats);
+const importedFruits = ref(fruits);
 
 // Calcul du total du panier pour chocolats.js
 const totalChocolat = computed(() => {
@@ -61,21 +86,3 @@ const updateCartFruits = (newProducts) => {
 
 
 </script>
-
-<template>
-  <main class="container w-auto">
-    <h1 class="text-center">La boutique des gourmands</h1>
-    <div class="row">
-      <div class="col-md-3">
-        <!-- Ici on ajoute l'utilisation de l'event @update:products émise (emit) par l'enfant Panier et on lui attribue une fonction définie dans script-->
-        <Panier title="Chocolats" :products="importedChocolats" :total="totalChocolat" @update:products="updateCartChocolat" />
-        <Panier title="Fruits" :products="importedFruits" :total="totalFruits" @update:products="updateCartFruits" />
-        <h3>Total global du panier</h3>
-        <p>Total global : {{ globalTotal.toFixed(2) }}</p>
-      </div>
-      <div class="col-md-9">
-        <PatisserieRow />
-      </div>
-    </div>
-  </main>
-</template>

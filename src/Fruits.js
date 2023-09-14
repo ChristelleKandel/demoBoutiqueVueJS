@@ -1,4 +1,4 @@
-export const fruits = [
+const fruits = [
     {
         name: 'tarte',
         image: 'src/assets/images/tarteFruits.jpg',
@@ -23,4 +23,6 @@ export const fruits = [
         price: 4.90,
         quantity: 0
     },
-]
+];
+
+export default fruits;

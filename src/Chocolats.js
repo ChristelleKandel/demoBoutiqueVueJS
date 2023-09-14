@@ -1,4 +1,4 @@
-export const chocolats = [
+const chocolats = [
     {
         name: 'tarte',
         image: 'src/assets/images/tarte.jpg',
@@ -24,4 +24,6 @@ export const chocolats = [
         quantity: 0
     },
 
-]
+];
+
+export default chocolats;
