@@ -1,5 +1,5 @@
 <template>
-    <div class="about">
+    <div class="contact">
         <h1>This is a contact page</h1>
         <form action="" id="formContact">
             <section v-if="step === 1">
@@ -19,11 +19,16 @@
             <button @click="previousStep">Précédent</button>
             <button @click="sendData">Envoyer</button>
         </form>
+
+       
     </div>
+
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue';
+
+
+import { ref } from 'vue';
 
 
 const step = ref(1);
